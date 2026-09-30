@@ -1,0 +1,28 @@
+#!/bin/sh
+# Know Your Role Recomp - AppImage launcher (Linux / SteamOS-like handhelds).
+#
+# Saves, settings and logs live in ${XDG_DATA_HOME:-~/.local/share}/KnowYourRoleRecomp (an AppImage is read-only).
+# Disc: the first argument, else $KYR_DISC, else the path in <data>/disc.txt. The runtime validates the disc from
+# settings.json (CdPath), so a known disc is written there while CdPath is empty; with no disc known, the game shows
+# its own disc picker and remembers the choice.
+HERE="$(dirname "$(readlink -f "$0")")"
+DATA="${XDG_DATA_HOME:-$HOME/.local/share}/KnowYourRoleRecomp"
+mkdir -p "$DATA/logs"
+export RECOMPONE_DATA_DIR="${RECOMPONE_DATA_DIR:-$DATA}"
+export RECOMPONE_LOG_DIR="${RECOMPONE_LOG_DIR:-$DATA/logs}"
+
+DISC="${1:-${KYR_DISC:-}}"
+[ -z "$DISC" ] && [ -f "$DATA/disc.txt" ] && DISC="$(cat "$DATA/disc.txt")"
+
+S="$DATA/settings.json"
+if [ -n "$DISC" ] && [ -f "$S" ] && grep -q '"CdPath": ""' "$S"; then
+  ESC="$(printf '%s' "$DISC" | sed 's/[\\"]/\\&/g; s/[&|]/\\&/g')"
+  sed -i "s|\"CdPath\": \"\"|\"CdPath\": \"$ESC\"|" "$S"
+fi
+
+cd "$DATA"
+if [ -n "$DISC" ]; then
+  exec "$HERE/usr/bin/KnowYourRole.Game" "$DISC"
+else
+  exec "$HERE/usr/bin/KnowYourRole.Game"
+fi

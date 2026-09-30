@@ -27,6 +27,7 @@
 - [Troubleshooting](#troubleshooting)
 - [Known issues](#known-issues)
 - [Building from source](#building-from-source)
+- [Linux and SteamOS handhelds (AppImage)](#linux-and-steamos-handhelds-appimage)
 - [License](#license)
 - [Disclaimer](#disclaimer)
 - [Credits](#credits)
@@ -260,6 +261,52 @@ disc picker; pick your `.cue`. Settings, memory cards and logs are kept next to 
 **The launcher** (KnowYourRole.exe, setup and launcher in one): `dotnet build Launcher/KnowYourRole.Launcher.csproj -c Release`.
 `tools/package-release.ps1` builds the release zip; its audit reads a local list of words no release file may
 contain (`.git\info\banned-words.txt`, one per line) and does not run without it.
+
+</details>
+
+## Linux and SteamOS handhelds (AppImage)
+
+<details>
+<summary><b>Build an AppImage for Steam Deck, Legion Go, ROG Ally (Bazzite/SteamOS) or desktop Linux</b></summary>
+
+The game runtime is cross-platform (SDL2, OpenGL, OpenAL through Silk.NET), so the port also runs natively on
+Linux, packaged as a single self-contained AppImage (no .NET install needed on the device). Tested on a Legion Go 2
+running Bazzite (Radeon 890M, OpenGL 4.6, Game Mode through Steam).
+
+**Build it** (on any x86_64 Linux machine or WSL, from your own disc image):
+
+```
+git clone --recurse-submodules <this repo>
+cd KnowYourRoleRecomp
+
+# with Docker (no local .NET SDK needed)
+docker build -t kyr-linux tools/linux
+docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/src" -v "/path/to/your/disc:/disc:ro" \
+    kyr-linux "/disc/WWF SmackDown! 2 - Know Your Role (USA).cue"
+
+# or with the .NET 10 SDK installed
+tools/linux/build-appimage.sh "/path/to/your/disc/WWF SmackDown! 2 - Know Your Role (USA).cue"
+```
+
+This writes `dist/KnowYourRole-x86_64.AppImage`. It contains code generated from **your** disc: keep it to yourself.
+
+**On the device**: copy the AppImage anywhere (for example `~/Games/KnowYourRole/`) and add it to Steam as a
+non-Steam game (no Proton / compatibility tool). On first start pick your `.cue` in the game's disc picker, or
+point it at the disc beforehand:
+
+```
+mkdir -p ~/.local/share/KnowYourRoleRecomp
+echo "/path/to/WWF SmackDown! 2 - Know Your Role (USA).cue" > ~/.local/share/KnowYourRoleRecomp/disc.txt
+```
+
+Saves, settings and logs live in `~/.local/share/KnowYourRoleRecomp/`.
+
+**Handheld-friendly defaults**:
+- **Widescreen**: *Settings > Display > Widescreen* (`auto`, `off`, `16:9`, `16:10`). `auto` (default) matches the
+  screen, so a 16:10 handheld gets a 16:10 picture: 3D is rendered with a wider field of view instead of being
+  stretched, while the HUD, menus and videos keep their original 4:3 proportions, centred. Objects right at the edges
+  may pop in, since the game culls for a 4:3 view.
+- **Menu bar hidden** by default. Toggle it with **F1**, or **L3 + R3** on player 1's controller.
 
 </details>
 

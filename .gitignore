@@ -25,3 +25,4 @@ backups/
 interface.ini
 settings.json
 *.bak*
+publish/
