@@ -1,0 +1,89 @@
+name: Bug report
+description: Something does not work in Know Your Role Recomp
+title: "[Know Your Role][Issue] Short description"
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. **Never upload game files**: no disc image (.bin/.cue/.iso/.chd), no files from the
+        disc, no BIOS, no memory card saves (.sav), no built game files (runtime\Recompiled.*.dll) and no screenshots or
+        videos of the game. Do not paste raw logs either: use **Collect diagnostics** in the launcher (Game files tab),
+        which removes your Windows user name and PC name, and attach that zip.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Shown in the launcher's title line (for example 0.2.0).
+      placeholder: "0.2.0"
+    validations:
+      required: true
+  - type: input
+    id: serial
+    attributes:
+      label: Disc serial
+      description: The only supported disc is the NTSC-U release.
+      value: "SLUS-01234"
+    validations:
+      required: true
+  - type: input
+    id: controller
+    attributes:
+      label: Controller model
+      description: For example "DualSense", "Xbox Series X controller", "8BitDo SN30 Pro", "keyboard".
+    validations:
+      required: true
+  - type: dropdown
+    id: connection
+    attributes:
+      label: Connection
+      options:
+        - USB
+        - Bluetooth
+        - Wireless adapter / dongle
+        - Keyboard only
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where in the game
+      description: For example "setup screen", "launcher", "title screen", "Season, second show", "Tag match, 4 players".
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. ...
+        2. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics zip
+      description: Launcher > Game files > "Collect diagnostics", then drag the zip here. It contains logs and settings
+        only, with your user name and PC name removed. Nothing from the game.
+    validations:
+      required: false
+  - type: checkboxes
+    id: legal
+    attributes:
+      label: Checks
+      options:
+        - label: I use my own legally obtained copy of the game, and this report contains no game files, BIOS, saves or unredacted logs.
+          required: true

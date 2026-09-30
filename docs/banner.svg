@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="Know Your Role Recomp">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#11151c"/>
+      <stop offset="1" stop-color="#1f2a38"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="300" rx="18" fill="url(#bg)"/>
+  <g stroke="#3b4a5e" stroke-width="3" fill="none">
+    <line x1="60" y1="222" x2="1140" y2="222"/>
+    <line x1="60" y1="240" x2="1140" y2="240"/>
+    <line x1="60" y1="258" x2="1140" y2="258"/>
+  </g>
+  <rect x="60" y="70" width="10" height="120" fill="#e0a526"/>
+  <text x="96" y="140" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" fill="#f2f4f7">Know Your Role Recomp</text>
+  <text x="98" y="184" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#a9b4c2">Native Windows port, built from your own disc</text>
+</svg>

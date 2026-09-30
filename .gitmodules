@@ -1,0 +1,3 @@
+[submodule "RecompOne"]
+	path = RecompOne
+	url = https://github.com/Comfubar/RecompOne-PS1Ports.git

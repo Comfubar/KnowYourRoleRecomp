@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- the game runtime (runtime\KnowYourRole.Game.exe in the player's folder, started by KnowYourRole.exe); no console
+         window, its output goes to user\logs\game_<time>.log -->
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>KnowYourRole.Game</AssemblyName>
+    <RootNamespace>KnowYourRole</RootNamespace>
+    <ApplicationIcon>Launcher\app.ico</ApplicationIcon>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!-- the recompiler emits one class library per image plus Recompiled.Entry (config "splitProjects"); this project
+       only compiles Program.cs, which loads Recompiled.Entry at startup, and references the libraries so a build
+       of the port copies them next to the exe -->
+  <ItemGroup>
+    <Compile Remove="RecompOne\**" />
+    <Compile Remove="generated\**" />
+    <Compile Remove="patches\**" />
+    <Compile Remove="tools\**" />
+    <Compile Remove="backups\**" />
+    <Compile Remove="Launcher\**" />
+    <Compile Remove="dist\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="RecompOne\RecompOne.Runtime\RecompOne.Runtime.csproj" />
+  </ItemGroup>
+
+  <!-- -p:Launcher=true builds the executable alone, without the recompiled game (what the release ships in runtime\) -->
+  <ItemGroup Condition="'$(Launcher)' != 'true'">
+    <ProjectReference Include="generated\*\*.csproj" />
+  </ItemGroup>
+
+</Project>

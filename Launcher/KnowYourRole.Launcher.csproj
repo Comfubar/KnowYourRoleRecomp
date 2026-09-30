@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- KnowYourRole.exe, the one program players start: first-run setup (builds the game on the player's PC from their
+       own disc: the recompiler and an in-process Roslyn compile, into runtime\ next to the game runtime that carries no
+       game code), then the launcher (play, controllers, display, files). -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>KnowYourRole</AssemblyName>
+    <RootNamespace>KnowYourRole.Launcher</RootNamespace>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <Product>Know Your Role Recomp</Product>
+    <Version>0.2.0</Version>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <!-- the recompiler is an executable project used here as a library -->
+    <ValidateExecutableReferencesMatchSelfContained>false</ValidateExecutableReferencesMatchSelfContained>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RecompOne\RecompOne.Recompiler\RecompOne.Recompiler.csproj" />
+    <ProjectReference Include="..\RecompOne\RecompOne.Runtime\RecompOne.Runtime.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,27 @@
+# game content and anything made from it: never commit
+disc/
+SLUS_01234/
+dumps/
+generated/
+packs/
+mods/
+*.bin
+*.cue
+*.iso
+*.chd
+*.pac
+*.PAC
+*.sav
+
+# build output
+bin/
+obj/
+dist/
+*.exe
+
+# local state: logs, settings, saves, backups
+logs/
+backups/
+interface.ini
+settings.json
+*.bak*

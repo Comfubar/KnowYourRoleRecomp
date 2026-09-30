@@ -1,0 +1,32 @@
+Know Your Role Recomp - third-party software
+
+This package contains no game code or data. It ships the following software, each under its own license.
+
+RecompOne (the PS1 recompiler and runtime this port is built with), MIT License, Copyright (c) 2026 flaffy.
+
+.NET runtime, Windows Forms, Roslyn (Microsoft.CodeAnalysis), MIT License, Copyright (c) .NET Foundation and
+Contributors.
+
+Silk.NET (OpenGL, GLFW, SDL, OpenAL, input and windowing bindings), MIT License, Copyright (c) .NET Foundation and
+Contributors.
+
+SDL2 (runtime\SDL2.dll), zlib License, Copyright (C) 1997-2024 Sam Lantinga.
+
+SDL_GameControllerDB (runtime\gamecontrollerdb.txt), the community controller mapping database,
+https://github.com/mdqinc/SDL_GameControllerDB, zlib License, Copyright (C) 1997-2025 Sam Lantinga; the full notice is
+in runtime\gamecontrollerdb.LICENSE.txt.
+
+GLFW (runtime\glfw3.dll), zlib License, Copyright (c) 2002-2006 Marcus Geelnard, Copyright (c) 2006-2019 Camilla
+Loewy.
+
+OpenAL Soft (runtime\soft_oal.dll), GNU Library General Public License version 2 or later; linked dynamically, the
+library can be replaced by another build of OpenAL Soft. Source: https://github.com/kcat/openal-soft
+
+Dear ImGui (runtime\cimgui.dll through ImGui.NET), MIT License, Copyright (c) 2014-2024 Omar Cornut; ImGui.NET,
+MIT License, Copyright (c) 2017 Eric Mellino and ImGui.NET contributors.
+
+MonoMod, MIT License, Copyright (c) 2015 - 2020 0x0ade.
+NVorbis, MIT License, Copyright (c) 2020 Andrew Ward.
+StbImageSharp, public domain (Unlicense), by Roman Shapiro, a port of stb_image by Sean Barrett.
+NativeFileDialogNET, zlib License; nativefiledialog-extended (runtime\nfd.dll), zlib License, Copyright (c) Bernard
+Teo, Michael Labbe.

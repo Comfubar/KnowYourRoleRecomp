@@ -1,0 +1,111 @@
+{
+    "game": {
+        "id": "SLUS-01234",
+        "name": "KnowYourRole",
+        "output": "../generated"
+    },
+    "cue": "../disc/KnowYourRole.cue",
+    "funcMap": "funcmaps/main.json",
+    "splitProjects": true,
+    "embedImages": false,
+    "runtimeProject": "../RecompOne/RecompOne.Runtime/RecompOne.Runtime.csproj",
+    "disableHle": [
+        "libpad"
+    ],
+    "linearSweep": false,
+    "functions": [],
+    "overlays": [
+        {
+            "name": "exe0000",
+            "file": "EXE.PAC",
+            "archive": "dpac",
+            "entry": 0,
+            "funcMap": "funcmaps/exe0000.json"
+        },
+        {
+            "name": "exe0001",
+            "file": "EXE.PAC",
+            "archive": "dpac",
+            "entry": 1,
+            "funcMap": "funcmaps/exe0001.json"
+        },
+        {
+            "name": "exe0002",
+            "file": "EXE.PAC",
+            "archive": "dpac",
+            "entry": 2,
+            "funcMap": "funcmaps/exe0002.json"
+        },
+        {
+            "name": "exe0003",
+            "file": "EXE.PAC",
+            "archive": "dpac",
+            "entry": 3,
+            "funcMap": "funcmaps/exe0003.json"
+        },
+        {
+            "name": "exe0004",
+            "file": "EXE.PAC",
+            "archive": "dpac",
+            "entry": 4,
+            "funcMap": "funcmaps/exe0004.json"
+        },
+        {
+            "name": "exe0005",
+            "file": "EXE.PAC",
+            "archive": "dpac",
+            "entry": 5,
+            "funcMap": "funcmaps/exe0005.json"
+        },
+        {
+            "name": "exe0006",
+            "file": "EXE.PAC",
+            "archive": "dpac",
+            "entry": 6,
+            "funcMap": "funcmaps/exe0006.json"
+        },
+        {
+            "name": "exe0007",
+            "file": "EXE.PAC",
+            "archive": "dpac",
+            "entry": 7,
+            "funcMap": "funcmaps/exe0007.json"
+        },
+        {
+            "name": "exe0008",
+            "file": "EXE.PAC",
+            "archive": "dpac",
+            "entry": 8,
+            "funcMap": "funcmaps/exe0008.json"
+        },
+        {
+            "name": "exe0009",
+            "file": "EXE.PAC",
+            "archive": "dpac",
+            "entry": 9,
+            "funcMap": "funcmaps/exe0009.json"
+        },
+        {
+            "name": "exe0010",
+            "file": "EXE.PAC",
+            "archive": "dpac",
+            "entry": 10,
+            "funcMap": "funcmaps/exe0010.json"
+        },
+        {
+            "name": "exe0011",
+            "file": "EXE.PAC",
+            "archive": "dpac",
+            "entry": 11,
+            "funcMap": "funcmaps/exe0011.json"
+        },
+        {
+            "name": "exe0013",
+            "file": "EXE.PAC",
+            "archive": "dpac",
+            "entry": 12,
+            "funcMap": "funcmaps/exe0013.json"
+        }
+    ],
+    "patches": []
+}

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Troubleshooting
+    url: https://github.com/Comfubar/KnowYourRoleRecomp#troubleshooting
+    about: Setup, graphics, the Visual C++ runtime and controller problems, with what to do for each.
+  - name: What works (compatibility)
+    url: https://github.com/Comfubar/KnowYourRoleRecomp/blob/main/docs/STATUS.md
+    about: What was tested, how, and the known issues.
